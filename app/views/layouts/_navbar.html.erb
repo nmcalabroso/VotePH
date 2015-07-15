@@ -1,11 +1,12 @@
 <h1>NavBar</h1>
+<h2><%= link_to 'VotePH', root_path %></h2>
 <% if user_signed_in? %>
   <h2>Hi, <%= current_user.first_name %>!</h2>
   <h3>Role: <%= current_user.role %></h3>
   <h3>
-    <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
+    <%= link_to 'Log out', destroy_user_session_path, :method => :delete %>
   </h3>
 <% else %>
-  <h2>Sign in</h2>
-  <h3>Sign up</h3>
+  <h3><%= link_to 'Sign in', new_user_session_path %></h3>
+  <h3><%= link_to 'Sign up', new_user_registration_path %></h3>
 <% end %>
