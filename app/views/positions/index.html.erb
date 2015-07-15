@@ -1,0 +1,11 @@
+<h1>Positions</h1>
+<% if @positions.size > 0 %>
+  <ol>
+    <% @positions.each do |position| %>
+      <li><%= link_to position.name, position %></li>
+    <% end %>
+  </ol>
+<% else %>
+  <h3>No created positions.</h3>
+<% end %>
+<h2><%= link_to 'Create', new_position_path %></h2>
