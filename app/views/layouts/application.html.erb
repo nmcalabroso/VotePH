@@ -14,9 +14,10 @@
   <body>
     <%= render 'layouts/navbar' %>
     <%= render 'layouts/flash' %>
-    
+    <hr>
+    <h1>Content</h1>
     <%= yield %>
-
+    <hr>
     <%= render 'layouts/footer' %>
     <%= javascript_include_tag "application" %>
   </body>
