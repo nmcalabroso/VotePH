@@ -23,6 +23,30 @@ class PositionsController < ApplicationController
     @position = Position.find(params[:id])
   end
 
+  def edit
+    @position = Position.find(params[:id])
+  end
+
+  def update
+    position = Position.find(params[:id])
+
+    if position.update(position_params)
+      redirect_to position, notice: 'Success!'
+    else
+      redirect_to positions_path, alert: 'Something went wrong :('
+    end
+  end
+
+  def destroy
+    position = Position.find(params[:id])
+
+    if position.destroy
+      redirect_to positions_path, notice: 'Success!'
+    else
+      redirect_to positions_path, alert: 'Something went wrong :('
+    end
+  end
+
   private
 
     def position_params
