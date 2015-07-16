@@ -1,4 +1,5 @@
 class CandidatesController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index, :all]
 
   def index
     @position = Position.find(params[:position_id])
@@ -46,6 +47,10 @@ class CandidatesController < ApplicationController
   def show
     @candidate = Candidate.find(params[:id])
     @vote = Vote.new
+  end
+
+  def all
+    @positions = Position.all
   end
 
   private

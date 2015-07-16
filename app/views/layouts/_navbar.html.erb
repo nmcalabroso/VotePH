@@ -10,6 +10,7 @@
       <ul class="right">
         <% if user_signed_in? %>
           <li><%= link_to current_user.email, current_user %></li>
+          <li><%= link_to 'View Candidates', candidates_path %></li>
           <li class="active">
             <%= link_to 'Log out', destroy_user_session_path, :method => :delete %>
           </li>

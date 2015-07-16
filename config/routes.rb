@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
 
+  get '/candidates', to: 'candidates#all', as: 'candidates'
+
   resources :positions do
     resources :candidates do
       resources :votes
