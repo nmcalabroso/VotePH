@@ -7,5 +7,7 @@
   <% unless current_user.did_vote? @candidate %>
     <a href="#" data-reveal-id="vote-modal" class="small button">Vote</a>
     <%= render 'votes/form' %>
+  <% else %>
+    <a href="#" class="small button disabled">Already Voted</a>
   <% end %>
 <% end %>
