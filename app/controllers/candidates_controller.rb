@@ -22,12 +22,25 @@ class CandidatesController < ApplicationController
   end
 
   def edit
+    @position = Position.find(params[:position_id])
+    @candidate = Candidate.find(params[:id])
   end
 
   def update
+    candidate = Candidate.find(params[:id])
+
+    if candidate.update(candidate_params)
+      redirect_to candidate.position, notice: 'Success!'
+    else
+      redirect_to candidate.position, alert: 'Something went wrong :('
+    end
   end
 
   def destroy
+    candidate = Candidate.find(params[:id])
+    position = candidate.position
+    candidate.destroy
+    redirect_to position, status: :see_other, notice: 'Candidate the associated votes are deleted!'
   end
 
   def show
