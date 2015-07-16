@@ -1,0 +1,12 @@
+<% if @position.candidates.size > 0 %>
+  <ol>
+    <% @position.candidates.each do |candidate| %>
+      <li>
+        <%= link_to "#{candidate.last_name}, #{candidate.first_name}",
+                    position_candidate_path(@position, candidate) %>
+      </li>
+    <% end %>
+  </ol>
+<% else %>
+<h3>No candidates in this position.</h3>
+<% end %>

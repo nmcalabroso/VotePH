@@ -2,5 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'static_pages#index'
 
-  resources :positions
+  resources :positions do
+    resources :candidates
+  end
 end
