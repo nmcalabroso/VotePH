@@ -40,7 +40,7 @@ class PositionsController < ApplicationController
   def destroy
     position = Position.find(params[:id])
     position.destroy
-    redirect_to positions_path, notice: 'Position and its candidates are deleted!'
+    redirect_to positions_path, status: :see_other, notice: 'Position and its candidates are deleted!'
   end
 
   private
