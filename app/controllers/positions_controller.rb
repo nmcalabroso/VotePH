@@ -13,7 +13,7 @@ class PositionsController < ApplicationController
     position = Position.new(position_params)
 
     if position.save
-      redirect_to position, notice: 'Success!'
+      redirect_to positions_path, notice: 'Success!'
     else
       redirect_to positions_path, alert: 'Something went wrong :('
     end

@@ -1,3 +1,12 @@
 <% flash.each do |name, msg| -%>
-  <%= content_tag :div, msg, class: name %>
+  <% if name == 'notice' %>
+    <div data-alert class="alert-box success">
+  <% elsif name == 'alert' %>
+    <div data-alert class="alert-box alert">
+  <% else %>
+    <div data-alert class="alert-box">
+  <% end %>
+      <%= msg %>
+      <a href="#" class="close">&times;</a>
+    </div>
 <% end %>

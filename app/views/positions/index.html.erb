@@ -1,4 +1,5 @@
-<h1>Positions</h1>
+<h2>Positions</h2>
+<%= link_to 'Create', new_position_path, {class: 'tiny button'} %>
 <% if @positions.size > 0 %>
   <ol>
     <% @positions.each do |position| %>
@@ -11,4 +12,3 @@
 <% else %>
   <h3>No created positions.</h3>
 <% end %>
-<h2><%= link_to 'Create', new_position_path %></h2>
