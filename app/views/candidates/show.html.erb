@@ -1,3 +1,11 @@
 <h2><%= "#{@candidate.last_name}, #{@candidate.first_name}" %></h2>
-<h3> Running for: <%= @candidate.position.name %> </h3>
-<h3> <%= @candidate.slogan %> </h3>
+<p>Position: <%= @candidate.position.name %></p>
+<p><i><%= @candidate.slogan %></i></p>
+<b>Votes: <%= @candidate.votes.size %></b>
+<br>
+<% if user_signed_in? %>
+  <% unless current_user.did_vote? @candidate %>
+    <a href="#" data-reveal-id="vote-modal" class="small button">Vote</a>
+    <%= render 'votes/form' %>
+  <% end %>
+<% end %>

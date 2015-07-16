@@ -8,3 +8,28 @@ admin.email = 'admin@voteph.org'
 admin.password = 'password'
 admin.password_confirmation = 'password'
 admin.save!
+
+position = Position.new
+position.name = 'President'
+position.save!
+
+candidate1 = Candidate.new
+candidate1.last_name = 'Binay'
+candidate1.first_name = 'Jejomar'
+candidate1.slogan = 'Kay Binay, Gaganda ang Buhay!'
+candidate1.position = position
+candidate1.save!
+
+candidate2 = Candidate.new
+candidate2.last_name = 'Poe'
+candidate2.first_name = 'Grace'
+candidate2.slogan = 'Maglilingkod POE sa inyo!'
+candidate2.position = position
+candidate2.save!
+
+candidate3 = Candidate.new
+candidate3.last_name = 'Duterte'
+candidate3.first_name = 'Rudy'
+candidate3.slogan = 'Gwapa mo a. Patayin kaya kita. Hehe.'
+candidate3.position = position
+candidate3.save!

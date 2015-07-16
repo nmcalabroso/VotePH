@@ -1,0 +1,10 @@
+<div id="vote-modal" class="reveal-modal" data-reveal aria-labelledby="V0te" aria-hidden="true" role="dialog">
+  <h2>Are you sure?</h2>
+  <%= form_for [@candidate.position, @candidate, @vote] do |f|%>
+    <%= f.label :comment %>
+    <%= f.text_area :comment, placeholder: 'Optional comment here ...' %>
+    <br>
+    <%= f.button 'Vote', class: 'small button' %>
+  <% end %>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>

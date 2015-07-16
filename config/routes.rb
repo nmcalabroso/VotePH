@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :users
 
   resources :positions do
-    resources :candidates
+    resources :candidates do
+      resources :votes
+    end
   end
 end

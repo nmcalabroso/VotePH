@@ -32,6 +32,7 @@ class CandidatesController < ApplicationController
 
   def show
     @candidate = Candidate.find(params[:id])
+    @vote = Vote.new
   end
 
   private
