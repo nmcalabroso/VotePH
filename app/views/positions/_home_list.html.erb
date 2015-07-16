@@ -16,6 +16,7 @@
               <%= link_to "#{candidate.last_name}, #{candidate.first_name}",
                           position_candidate_path(position, candidate) %>
               <i><%= candidate.slogan %></i>
+              <i>Votes: <%= candidate.votes.size %></i>
             </li>
         <% end %>
       </ol>
