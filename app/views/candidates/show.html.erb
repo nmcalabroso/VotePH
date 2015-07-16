@@ -1,7 +1,9 @@
 <h2><%= "#{@candidate.last_name}, #{@candidate.first_name}" %></h2>
 <p>Position: <%= @candidate.position.name %></p>
 <p><i><%= @candidate.slogan %></i></p>
-<b>Votes: <%= @candidate.votes.size %></b>
+<b>Total Votes: <%= @candidate.votes.size %></b>
+<b>Male Votes: <%= @candidate.male_votes.size %></b>
+<b>Female Votes: <%= @candidate.female_votes.size %></b>
 <br>
 <% if user_signed_in? %>
   <% unless current_user.did_vote? @candidate %>

@@ -39,12 +39,8 @@ class PositionsController < ApplicationController
 
   def destroy
     position = Position.find(params[:id])
-
-    if position.destroy
-      redirect_to positions_path, notice: 'Success!'
-    else
-      redirect_to positions_path, alert: 'Something went wrong :('
-    end
+    position.destroy
+    redirect_to positions_path, notice: 'Position and its candidates are deleted!'
   end
 
   private
