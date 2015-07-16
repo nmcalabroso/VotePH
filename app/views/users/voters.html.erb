@@ -1,0 +1,12 @@
+<h2>Voters</h2>
+<% if @voters.size > 0 %>
+  <ol>
+    <% @voters.each do |voter| %>
+      <li><%= "#{voter.last_name}, #{voter.first_name} | #{voter.gender}" %></li>
+    <% end %>
+  </ol>
+<% else %>
+  <p>
+    There are no voters.
+  </p>
+<% end %>

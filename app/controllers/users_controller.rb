@@ -6,4 +6,8 @@ class UsersController < ApplicationController
 
   def show
   end
+
+  def voters
+    @voters = User.voters
+  end
 end

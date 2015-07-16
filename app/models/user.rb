@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :votes
+  scope :voters, -> { where role: :user }
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 

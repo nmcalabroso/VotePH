@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users
 
   get '/candidates', to: 'candidates#all', as: 'candidates'
+  get '/voters', to: 'users#voters', as: 'voters'
 
   resources :positions do
     resources :candidates do
