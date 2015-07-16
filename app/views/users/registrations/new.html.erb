@@ -21,9 +21,43 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label :last_name %><br/>
+    <%= f.text_field :last_name%>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name %><br/>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gender %><br/>
+    <select name="user[gender]">
+      <option value="" selected="selected">Please select</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="gay">Gay</option>
+      <option value="lesbian">Lesbian</option>
+      <option value="transexual">Transexual</option>
+      <option value="bisexual">Bisexual</option>
+      <option value="queer">Queer</option>
+    </select>
+  </div>
+
+  <!--<div class="field">
+    <%= f.label :birthday %><br/>
+    <%= f.text_field :birthday, class: 'datetimepicker input-append date', value: '07/16/2015', data: {'date-format': 'mm/dd/yyyy', viewMode: 2, minViewMode: 1} %>
+  </div>
+
+  <br/><br/>-->
+
+  <div class="field">
+    <%= f.label :birthday %><br/>
+    <%= f.date_select :birthday, start_year: 1900 %>
+  </div>
+
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit 'Sign up' %>
   </div>
 <% end %>
-
-<%= render "users/shared/links" %>

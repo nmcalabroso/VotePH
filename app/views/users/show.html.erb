@@ -1,4 +1,4 @@
 <h2>Profile</h2>
 <h3><%= "#{current_user.last_name}, #{current_user.first_name}" %></h3>
 <h3> Gender: <%= current_user.gender %> </h3>
-<h3> Birthdate: <%= current_user.birthday %> </h3>
+<h3> Birthdate: <%= current_user.birthday.strftime('%m/%d/%Y') %> </h3>

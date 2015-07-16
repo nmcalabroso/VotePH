@@ -31,7 +31,7 @@ class PositionsController < ApplicationController
     position = Position.find(params[:id])
 
     if position.update(position_params)
-      redirect_to position, notice: 'Success!'
+      redirect_to positions_path, notice: 'Success!'
     else
       redirect_to positions_path, alert: 'Something went wrong :('
     end
