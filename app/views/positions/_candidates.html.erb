@@ -3,9 +3,7 @@
     <% @position.candidates.each do |candidate| %>
       <li>
         <%= link_to "#{candidate.last_name}, #{candidate.first_name}",
-                    position_candidate_path(@position, candidate) %> |
-        <%= link_to 'Edit', edit_position_candidate_path(@position, candidate) %> |
-        <%= link_to 'Delete', position_candidate_path(@position, candidate), method: :delete %>
+                    position_candidate_path(@position, candidate) %>
       </li>
     <% end %>
   </ol>

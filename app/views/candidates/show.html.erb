@@ -19,14 +19,49 @@
 
       <br><br>
       <% if user_signed_in? %>
-        <% unless current_user.did_vote? @candidate %>
-          <a href="#" data-reveal-id="vote-modal" class="small button radius">Vote</a>
-          <%= render 'votes/form' %>
+        <% if current_user.is_admin? %>
+          <a href="#" data-reveal-id="edit-candidate-modal" class="small button radius">Edit Candidate</a>
+          <%= link_to 'Delete Candidate', position_candidate_path(@candidate.position, @candidate), method: :delete, class: 'small button' %>
         <% else %>
-          <a href="#" class="small button disabled">Already Voted</a>
+          <% unless current_user.did_vote? @candidate %>
+            <a href="#" data-reveal-id="vote-modal" class="small button radius">Vote</a>
+            <%= render 'votes/form' %>
+          <% else %>
+            <a href="#" class="small button disabled">Already Voted</a>
+          <% end %>
         <% end %>
       <% end %>
     </div>
   </div>
-
 </section>
+
+<div id="edit-candidate-modal" class="reveal-modal" data-reveal aria-labelledby="Candidate" aria-hidden="true" role="dialog">
+  <h2>Edit Candidate</h2>
+  <%= form_for [@candidate.position, @candidate] do |f| %>
+    <%= f.file_field :avatar %>
+
+    <div class="row">
+      <div class="large-6 columns">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, placeholder:'Dela Cruz' %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-6 columns">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, placeholder:'Juan' %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-6 columns">
+        <%= f.label :slogan %>
+        <%= f.text_area :slogan, placeholder:'Honesty is the best policy.' %>
+      </div>
+    </div>
+
+    <%= f.submit 'Save', class: 'button radius small' %>
+  <% end %>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>

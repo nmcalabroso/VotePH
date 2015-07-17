@@ -31,9 +31,9 @@ class CandidatesController < ApplicationController
     candidate = Candidate.find(params[:id])
 
     if candidate.update(candidate_params)
-      redirect_to candidate.position, notice: 'Success!'
+      redirect_to position_candidate_path(candidate.position, candidate), notice: 'Success!'
     else
-      redirect_to candidate.position, alert: 'Something went wrong :('
+      redirect_to position_candidate_path(candidate.position, candidate), alert: 'Something went wrong :('
     end
   end
 
