@@ -1,27 +1,27 @@
-<section class="row">
-    <div class="row">
-      <div class="large-6 medium-6 large-centered medium-centered small-centered columns">
-        <%= form_for [@position, @candidate] do |f| %>
-        <%= f.file_field :avatar %>
-        <%= f.label :last_name %>
-        <%= f.text_field :last_name, placeholder:'Dela Cruz' %>
-      </div>
+<div id="add-candidate-modal" class="reveal-modal" data-reveal aria-labelledby="Position" aria-hidden="true" role="dialog">
+  <div class="row">
+    <div class="large-6 medium-6 large-centered medium-centered small-centered columns">
+      <%= form_for [@position, @candidate] do |f| %>
+      <%= f.file_field :avatar %>
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, placeholder:'Dela Cruz' %>
     </div>
+  </div>
 
-    <div class="row">
-      <div class="large-6 medium-6 large-centered medium-centered small-centered columns">
-        <%= f.label :first_name %>
-        <%= f.text_field :first_name, placeholder:'Juan' %>
-      </div>
+  <div class="row">
+    <div class="large-6 medium-6 large-centered medium-centered small-centered columns">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, placeholder:'Juan' %>
     </div>
+  </div>
 
-    <div class="row">
-      <div class="large-6 medium-6 large-centered medium-centered small-centered columns">
-        <%= f.label :slogan %>
-        <%= f.text_area :slogan, placeholder:'Honesty is the best policy.' %>
-        <%= f.submit 'Save', class: 'button radius small' %>
-      </div>
+  <div class="row">
+    <div class="large-6 medium-6 large-centered medium-centered small-centered columns">
+      <%= f.label :slogan %>
+      <%= f.text_area :slogan, placeholder:'Honesty is the best policy.' %>
+      <%= f.submit 'Save', class: 'button radius small' %>
     </div>
+  </div>
 
-  <% end %>
-</section>
+<% end %>
+</div>

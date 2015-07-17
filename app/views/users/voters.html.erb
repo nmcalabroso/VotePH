@@ -4,18 +4,28 @@
   </div>
   <% if @voters.size > 0 %>
     <table class="mini-table">
+      <thead>
+        <tr>
+          <th class="text-center">Name</th>
+          <th class="text-center" width="20%">Sex</th>
+          <th class="text-center" width="25%">Votes</th>
+        </tr>
+      </thead>
       <tbody>
         <% @voters.each do |voter| %>
         <tr>
           <td>
             <%= "#{voter.last_name}, #{voter.first_name}" %>
           </td>
-          <td width="20%">
+          <td>
             <% if "#{voter.gender}" == 'male' %>
               <i class="fa fa-mars"></i>
             <% else %>
               <i class="fa fa-venus"></i>
             <% end %>
+          </td>
+          <td>
+            <%= voter.votes.size %>
           </td>
         </tr>
         <% end %>

@@ -18,6 +18,7 @@ class PositionsController < ApplicationController
 
   def show
     @position = Position.find(params[:id])
+    @candidate = Candidate.new
   end
 
   def edit

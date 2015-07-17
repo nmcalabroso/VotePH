@@ -1,21 +1,45 @@
 <section class="row">
-    <div class="desc">
-      <h2><%= @position.name %></h2>
-    </div>
+  <div class="desc">
+    <h2><%= @position.name %></h2>
+  </div>
 
-    <h3>Candidates</h3>
-    <%= render 'candidates' %>
-    <br>
-    <%= link_to 'Add Candidate', new_position_candidate_path(@position, @comment), class:'button radius small' %>
-    <a href="#" data-reveal-id="edit-position-modal" class="small button radius">Edit Position</a>
-    <%= link_to 'Delete Position', @position, method: :delete, class: 'small button' %>
+  <h3>Candidates</h3>
+  <%= render 'candidates' %>
+  <a href="#" data-reveal-id="add-candidate-modal" class="small button radius">Add Candidate</a>
+  <a href="#" data-reveal-id="edit-position-modal" class="small button radius">Edit Position</a>
+  <%= link_to 'Delete Position', @position, method: :delete, class: 'small button radius' %>
 </section>
+
+<!-- Modals -->
 
 <div id="edit-position-modal" class="reveal-modal medium" data-reveal aria-labelledby="Position" aria-hidden="true" role="dialog">
   <h2>Edit Position</h2>
   <%= simple_form_for @position do |f| %>
     <%= f.input :name %>
     <%= f.button :submit, class:'radius small' %>
+  <% end %>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div id="add-candidate-modal" class="reveal-modal medium" data-reveal aria-labelledby="Position" aria-hidden="true" role="dialog">
+  <h2>Add Candidate</h2>
+  <div class="row">
+      <%= form_for [@position, @candidate] do |f| %>
+      <%= f.file_field :avatar %>
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, placeholder:'Dela Cruz' %>
+  </div>
+
+  <div class="row">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, placeholder:'Juan' %>
+  </div>
+
+  <div class="row">
+      <%= f.label :slogan %>
+      <%= f.text_area :slogan, placeholder:'Honesty is the best policy.' %>
+      <%= f.submit 'Save', class: 'button radius small' %>
+  </div>
   <% end %>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>

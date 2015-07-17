@@ -2,25 +2,63 @@
   <div class="desc">
     <h2>Profile</h2>
   </div>
-  <h4><%= "#{current_user.last_name}, #{current_user.first_name}" %></h4>
-  <h4> Gender: <%= current_user.gender %> </h4>
-  <h4> Birthdate: <%= current_user.birthday.strftime('%m/%d/%Y') %> </h4>
+
+  <div class="row">
+    <div class="bar"></div>
+    <div class="card">
+      <div class="large-4 medium-4 columns">
+        <% if "#{current_user.gender}" == 'male' %>
+          <%= image_tag 'male.jpg' %>
+        <% else %>
+          <%= image_tag 'female.jpg' %>
+        <% end %>
+      </div>
+      <div class="large-8 medium-8 columns left">
+         <h3><%= "#{current_user.last_name}, #{current_user.first_name}" %></h3>
+        <h4><%= current_user.birthday.strftime('%m-%d-%Y') %> </h4>       
+      </div>
+
+      </div>
+    </div>
+  </div>
 
   <div class="desc">
     <h3>Votes (<%= current_user.votes.size %>)</h3>
   </div>
 
-  <section class="no-line-height">
+  <section class="big-margin-bottom">
     <% if current_user.votes.size > 0 %>
-        <% current_user.votes.each do |vote| %>
-            <h4><%= "#{vote.candidate.last_name}, #{vote.candidate.first_name}" %></h4>
-            <p class="subheader">Running for <%= vote.candidate.position.name %></p>
-            <b>Comments:</b>
-            <blockquote class="indent"><%= vote.comment %></blockquote>
-        <% end %>
+      <table>
+        <thead>
+          <tr>
+            <th class="text-center" width="35%">Candidates</th>
+            <th class="text-center">Comments</th>
+          </tr>
+        </thead>
+
+
+        <tbody>
+          <% current_user.votes.each do |vote| %>
+            <tr>
+              <td>
+                <h5><%= "#{vote.candidate.last_name}, #{vote.candidate.first_name}" %></h5>
+                <p class="subheader">Running for <%= vote.candidate.position.name %></p>
+              </td>
+              <td>
+                <p><%= vote.comment %></p>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+
+
+      </table>
     <% else %>
       <p>You have no votes yet.</p>
     <% end %>
   </section>
+
+
+
 
 </section>

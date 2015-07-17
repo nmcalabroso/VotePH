@@ -3,7 +3,7 @@
     <h2>Candidates</h2>
   </div>
   <% if user_signed_in? and current_user.is_admin? %>
-    <a href="#" data-reveal-id="position-modal" class="small button radius">Create Position</a>
+    <a href="#" data-reveal-id="position-modal" class="small button radius large-12 columns min-top-margin">Create Position</a>
   <% end %>
   <% if @positions.size > 0 %>
     <% @positions.each do |position| %>
