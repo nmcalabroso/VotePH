@@ -14,27 +14,28 @@
 //= require jquery_ujs
 //= require foundation
 
-$(function(){ 
+
+$(function(){
   $(document).foundation();
 });
 
-$('#return-to-top').click(function() {
-  $('body,html').animate({
-      scrollTop : 0
-  }, 500);
-});
+$(document).ready(function () {
+  $('#return-to-top').click(function() {
+    $('body,html').animate({
+        scrollTop : 0
+    }, 500);
+  });
 
-$(window).scroll(function() {
-  if ($(this).scrollTop() >= 50) {
-      $('#return-to-top').fadeIn(200);
-  } 
+  $(window).scroll(function() {
+    if ($(this).scrollTop() >= 50) {
+        $('#return-to-top').fadeIn(200);
+    }
 
-  else {
-      $('#return-to-top').fadeOut(200);
-  }
+    else {
+        $('#return-to-top').fadeOut(200);
+    }
+  });
 });
 
 //= require turbolinks
 //= require_tree .
-
-
