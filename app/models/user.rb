@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
     similar_votes = votes.select { |vote| vote.candidate == candidate }
     similar_votes.size > 0
   end
+
+  def is_admin?
+    role == 'admin'
+  end
 end
