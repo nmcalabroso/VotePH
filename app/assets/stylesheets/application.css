@@ -14,3 +14,67 @@
  *= require_self
  *= require font-awesome
  */
+
+
+
+/* =========================================
+   Typography
+   =========================================
+*/
+
+h1, h2, h3, h4, h5, p, a, small, li {
+  line-height: 66px;
+  font-family: "Lato";
+}
+
+blockquote {
+  font-size: 1.5em;
+}
+
+.firm {
+  font-variant:small-caps;
+}
+
+
+/* =========================================
+   Sections
+   =========================================
+*/
+
+.desc {
+  padding-bottom: 22px;
+  margin-top: 44px;
+  margin-bottom: 44px;
+  text-align: center;
+  border-bottom: solid #ddd 1px;
+}
+
+.footer {
+  padding-left: 22px;
+  border-top: solid #ddd 1px;
+}
+
+
+/* =========================================
+   Candidates
+   =========================================
+*/
+
+.candidates-row {
+  margin: 44px 22px 44px 22px;
+}
+
+.candidates-row h2 {
+  margin-bottom: 22px;
+}
+
+.candidate {
+  margin-top: 28px;
+}
+
+.thumbnail {
+  height: 250px;
+  width: 250px;
+  border-radius: 2%;
+  background-color: #ddd;
+}
