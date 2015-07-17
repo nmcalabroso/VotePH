@@ -38,6 +38,10 @@ h1, h2, h3, h4, h5, p, a, small, li, label {
   font-size: 1.2em;
 }
 
+.small-text {
+  font-size: 0.5em;
+}
+
 
 /* =========================================
    Tables
@@ -81,6 +85,10 @@ tr:nth-of-type(odd) {
   margin-bottom: 44px;
 }
 
+.big-margin-bottom {
+  margin-bottom: 66px;
+}
+
 .small-margin-bottom {
   margin-bottom: 22px;
 }
@@ -110,6 +118,13 @@ tr:nth-of-type(odd) {
 .thumbnail {
   max-height: 100%;
   max-width: 100%;
+  border-radius: 2%;
+  margin-bottom: 22px;
+}
+
+.small-thumbnail {
+  max-height: 70%;
+  max-width: 70%;
   border-radius: 2%;
   margin-bottom: 22px;
 }

@@ -12,7 +12,7 @@
           <% sorted_candidates = position.candidates.sort_by { |candidate| candidate.votes.size } %>
           <% sorted_candidates.reverse.each do |candidate| %>
             <div class="large-4 medium-6 columns left">
-                  <img src="http://41.media.tumblr.com/0a049264fba0072a818f733a6c533578/tumblr_mqvlz4t5FK1qcnibxo1_540.png" alt="" class="large-6 columns thumbnail"/>
+                  <img src="http://41.media.tumblr.com/0a049264fba0072a818f733a6c533578/tumblr_mqvlz4t5FK1qcnibxo1_540.png" alt="" class="large-6 medium-6 columns thumbnail"/>
                   <div class="large-6 columns">
                     <h4><%= link_to "#{candidate.last_name}, #{candidate.first_name}",
                                 position_candidate_path(position, candidate)%></h4>
