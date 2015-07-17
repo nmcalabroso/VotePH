@@ -1,12 +1,27 @@
-<%= form_for [@position, @candidate] do |f| %>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
+<section class="row">
+  <%= form_for [@position, @candidate] do |f| %>
 
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
+    <div class="row">
+      <div class="large-6 columns">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, placeholder:'Dela Cruz' %>
+      </div>
+    </div>
 
-  <%= f.label :slogan %>
-  <%= f.text_area :slogan %>
+    <div class="row">
+      <div class="large-6 columns">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, placeholder:'Juan' %>
+      </div>
+    </div>
 
-  <%= f.submit 'Save' %>
-<% end %>
+    <div class="row">
+      <div class="large-6 columns">
+        <%= f.label :slogan %>
+        <%= f.text_area :slogan, placeholder:'Honesty is the best policy.' %>
+      </div>
+    </div>
+
+    <%= f.submit 'Save', class: 'button radius small' %>
+  <% end %>
+</section>
