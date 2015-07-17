@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/voters', to: 'users#voters', as: 'voters'
   get '/about', to: 'static_pages#about', as: 'about'
 
-  resources :positions do
+  resources :positions, except: :index do
     resources :candidates do
       resources :votes
     end

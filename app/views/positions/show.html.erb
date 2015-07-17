@@ -7,5 +7,17 @@
     <%= render 'candidates' %>
     <br>
     <%= link_to 'Add Candidate', new_position_candidate_path(@position, @comment), class:'button radius small' %>
-    <%= link_to 'Edit Position', edit_position_path(@position), class: 'button radius small' %>
+    <a href="#" data-reveal-id="edit-position-modal" class="small button radius">Edit Position</a>
+    <%= link_to 'Delete Position',
+                @position, method: :delete, class: 'small button',
+                confirm: 'Are you sure? This will remove all the candidates and the respective votes in this position.' %>
 </section>
+
+<div id="edit-position-modal" class="reveal-modal" data-reveal aria-labelledby="Position" aria-hidden="true" role="dialog">
+  <h2>Edit Position</h2>
+  <%= simple_form_for @position do |f| %>
+    <%= f.input :name %>
+    <%= f.button :submit, class:'radius small' %>
+  <% end %>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>

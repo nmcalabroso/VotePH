@@ -18,4 +18,14 @@ class ApplicationController < ActionController::Base
      }
    end
   end
+
+  def authenticate_admin!
+    unless user_signed_in?
+      redirect_to new_user_session_path, alert: 'You must sign in first.'
+    end
+
+    unless current_user.role == 'admin'
+      redirect_to root_path, alert: 'You are not permitted to view this page.'
+    end
+  end
 end

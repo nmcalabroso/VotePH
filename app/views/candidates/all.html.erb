@@ -2,6 +2,9 @@
   <div class="desc">
     <h2>Candidates</h2>
   </div>
+  <% if user_signed_in? and current_user.is_admin? %>
+    <a href="#" data-reveal-id="position-modal" class="small button radius">Create Position</a>
+  <% end %>
   <% if @positions.size > 0 %>
     <% @positions.each do |position| %>
       <h2 class="small-margin-bottom"><%= position.name %></h2>
@@ -21,11 +24,6 @@
   <% else %>
     <p>There are no positions and candidates.</p>
   <% end %>
-
-  <% if user_signed_in? %>
-    <% if current_user.role == 'admin' %>
-      <h2><%= link_to 'Edit', positions_path, class:'button small radius' %></h2>
-    <% end %>
-  <% end %>
-
 </section>
+
+<%= render 'positions/form' %>

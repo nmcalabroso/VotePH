@@ -1,8 +1,8 @@
-<div class="row">
-  <div class="columns large-6">
-    <%= simple_form_for @position do |f| %>
-      <%= f.input :name %>
-      <%= f.button :submit, class:'radius small' %>
-    <% end %>
-  </div>
+<div id="position-modal" class="reveal-modal" data-reveal aria-labelledby="Position" aria-hidden="true" role="dialog">
+  <h2>New Position</h2>
+  <%= simple_form_for @position do |f| %>
+    <%= f.input :name %>
+    <%= f.button :submit, class:'radius small' %>
+  <% end %>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
