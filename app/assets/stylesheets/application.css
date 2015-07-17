@@ -89,6 +89,10 @@ tr:nth-of-type(odd) {
   margin-left: 22px;
 }
 
+.footer {
+  margin-top: 66px;
+  padding: 22px;
+}
 
 /* =========================================
    Candidates
@@ -110,7 +114,9 @@ tr:nth-of-type(odd) {
   margin-bottom: 22px;
 }
 
-
+.position-row {
+  margin-bottom: 44px;
+}
 
 
 

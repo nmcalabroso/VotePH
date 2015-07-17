@@ -1,11 +1,10 @@
 <section>
-  <% if user_signed_in? %>
+<% if user_signed_in? %>
 <% end %>
 
 <% if @positions.size > 0 %>
-
   <% @positions.each do |position| %>
-    <section class="row">
+    <section class="row position-row">
       <div class="row">
         <h2 class="text-center add-margin-bottom"><%= position.name %></h2>        
       </div>
@@ -25,16 +24,12 @@
             </div>
           <% end %>
       <% else %>
-        <p class="text-center">
-          There no candidates.
-        </p>
+        <p class="text-center">There no candidates.</p>
       <% end %>
   </section>
   <% end %>
 
 <% else %>
-  <p class="text-center">
-    There are no positions and candidates.
-  </p>
+  <p class="text-center">There are no positions and candidates.</p>
 <% end %>
 </section>
