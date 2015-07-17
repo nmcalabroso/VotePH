@@ -49,6 +49,46 @@ end
 
 candidate3.save!
 
+position2 = Position.new
+position2.name = 'Vice President'
+position2.save!
+
+candidate4 = Candidate.new
+candidate4.last_name = 'Escudero'
+candidate4.first_name = 'Francis'
+candidate4.slogan = 'I dare to care about equality'
+candidate4.position = position2
+
+File.open('public/tests/escudero.jpg') do |f|
+  candidate4.avatar = f
+end
+
+candidate4.save!
+
+candidate5 = Candidate.new
+candidate5.last_name = 'Trillanes'
+candidate5.first_name = 'Antonio'
+candidate5.slogan = 'Magdalo, Para sa pagbabago'
+candidate5.position = position2
+
+File.open('public/tests/trillanes.jpg') do |f|
+  candidate5.avatar = f
+end
+
+candidate5.save!
+
+candidate6 = Candidate.new
+candidate6.last_name = 'Roxas'
+candidate6.first_name = 'Manuel'
+candidate6.slogan = 'Sama-sama tayo. Lalaban tayo.'
+candidate6.position = position2
+
+File.open('public/tests/roxas.jpg') do |f|
+  candidate6.avatar = f
+end
+
+candidate6.save!
+
 voter1 = User.new
 voter1.last_name = 'Calabroso'
 voter1.first_name = 'Neil'
