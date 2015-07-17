@@ -1,7 +1,11 @@
-<h2><%= @position.name %></h2>
-<%= link_to 'Back', positions_path %>
-<%= link_to 'Edit', edit_position_path(@position) %>
+<section class="row">
+    <div class="desc">
+      <h2><%= @position.name %></h2>
+    </div>
 
-<h3>Candidates</h3>
-<%= link_to 'Add', new_position_candidate_path(@position, @comment) %>
-<%= render 'candidates' %>
+
+    <h3>Candidates</h3>
+    <%= render 'candidates' %>
+    <%= link_to 'Add Candidate', new_position_candidate_path(@position, @comment), class:'button radius small' %>
+    <%= link_to 'Edit Position', edit_position_path(@position), class: 'button radius small' %>
+</section>

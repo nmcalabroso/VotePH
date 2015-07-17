@@ -1,4 +1,8 @@
-<%= simple_form_for @position do |f| %>
-  <%= f.input :name %>
-  <%= f.button :submit %>
-<% end %>
+<div class="row">
+  <div class="columns large-6">
+    <%= simple_form_for @position do |f| %>
+      <%= f.input :name %>
+      <%= f.button :submit, class:'radius small' %>
+    <% end %>
+  </div>
+</div>

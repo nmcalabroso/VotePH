@@ -23,12 +23,11 @@
 */
 
 h1, h2, h3, h4, h5, p, a, small, li {
-  line-height: 66px;
   font-family: "Lato";
 }
 
-blockquote {
-  font-size: 1.5em;
+.blockquote-big {
+  font-size: 1.2em;
 }
 
 .firm {
@@ -47,6 +46,7 @@ blockquote {
   margin-bottom: 44px;
   text-align: center;
   border-bottom: solid #ddd 1px;
+  line-height: 44px;
 }
 
 .footer {
@@ -73,8 +73,10 @@ blockquote {
 }
 
 .thumbnail {
-  height: 250px;
-  width: 250px;
+  /*height: 250px;
+  width: 250px;*/
+  max-height: 100%;
+  max-width: 100%;
   border-radius: 2%;
   background-color: #ddd;
 }

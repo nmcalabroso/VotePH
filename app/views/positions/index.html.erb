@@ -1,14 +1,19 @@
-<h2>Positions</h2>
-<%= link_to 'Create', new_position_path, {class: 'tiny button'} %>
-<% if @positions.size > 0 %>
-  <ol>
-    <% @positions.each do |position| %>
-      <li><%= link_to position.name, position %> |
-          <%= link_to 'Edit', edit_position_path(position) %> |
-          <%= link_to 'Delete', position, method: :delete %>
-      </li>
-    <% end %>
-  </ol>
-<% else %>
-  <h3>No created positions.</h3>
-<% end %>
+<section class="row">
+  <div class="desc">
+    <h2>Positions</h2>
+  </div>
+  <% if @positions.size > 0 %>
+    <ol>
+      <% @positions.each do |position| %>
+        <li><%= link_to position.name, position %> |
+            <%= link_to 'Edit', edit_position_path(position) %> |
+            <%= link_to 'Delete', position, method: :delete %>
+        </li>
+      <% end %>
+    </ol>
+  <% else %>
+    <h3>No created positions.</h3>
+  <% end %>
+  <%= link_to 'Create', new_position_path, {class: 'small button radius'} %>
+
+</section>
