@@ -57,7 +57,7 @@ table {
   width: 70%;
 }
 
-tr:nth-of-type(odd) { 
+tr:nth-of-type(even) { 
   background: #eee; 
 }
 
@@ -74,6 +74,10 @@ tr:nth-of-type(odd) {
   text-align: center;
   border-bottom: solid #ddd 1px;
   line-height: 44px;
+}
+
+#navbar {
+  border-bottom: solid #43AC6A 8px;
 }
 
 .footer {
