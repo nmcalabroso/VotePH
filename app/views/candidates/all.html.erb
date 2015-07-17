@@ -1,10 +1,10 @@
 <section class="row">
   <div class="desc">
-    <h2> Candidates </h2>
+    <h2>Candidates</h2>
   </div>
   <% if @positions.size > 0 %>
     <% @positions.each do |position| %>
-      <h2 class="add-margin-bottom"><%= position.name %></h2>
+      <h2 class="small-margin-bottom"><%= position.name %></h2>
       <div class="indent">
         <% if position.candidates.size > 0 %>
           <% sorted_candidates = position.candidates.sort_by { |candidate| candidate.votes.size } %>
@@ -12,7 +12,6 @@
             <h4><%= link_to "#{candidate.last_name}, #{candidate.first_name}",
                         position_candidate_path(position, candidate) %></h4>
             <p><b><%= candidate.votes.size %></b> votes</p>
-            <br>
           <% end %>        
       </div>
       <% else %>

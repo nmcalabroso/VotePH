@@ -16,7 +16,7 @@
             <h4><%= "#{vote.candidate.last_name}, #{vote.candidate.first_name}" %></h4>
             <p class="subheader">Running for <%= vote.candidate.position.name %></p>
             <b>Comments:</b>
-            <blockquote><%= vote.comment %></blockquote>
+            <blockquote class="indent"><%= vote.comment %></blockquote>
         <% end %>
     <% else %>
       <p>You have no votes yet.</p>

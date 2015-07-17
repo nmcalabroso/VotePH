@@ -1,16 +1,26 @@
 <% if @position.candidates.size > 0 %>
-  <ol>
+  <table>
+    <tbody>
     <% @position.candidates.each do |candidate| %>
-      <li>
+    <tr>
+      <td>
         <%= link_to "#{candidate.last_name}, #{candidate.first_name}",
-                    position_candidate_path(@position, candidate) %> |
-        <%= link_to 'Edit', edit_position_candidate_path(@position, candidate) %> |
-        <%= link_to 'Delete', position_candidate_path(@position, candidate), method: :delete %>
-      </li>
-    <% end %>
-  </ol>
+                  position_candidate_path(@position, candidate), class:'big-text' %>
+      </td>
+      <td width="10%">
+        <%= link_to edit_position_candidate_path(@position, candidate), class:'big-text' do %>
+          <i class="fa fa-pencil-square-o"></i>
+        <% end %>
+      </td>
+      <td width="10%">
+        <%= link_to position_candidate_path(@position, candidate), method: :delete, class:'big-text' do %>   
+        <i class="fa fa-times"></i>    
+        <% end %>
+      </td>
+    </tr>
+    <% end %>      
+    </tbody>
+  </table>
 <% else %>
-<p>
-  No candidates in this position.
-</p>
+<p>No candidates in this position.</p>
 <% end %>

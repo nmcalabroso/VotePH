@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5, p, a, small, li, label {
 }
 
 .big-text {
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
 
 
@@ -79,6 +79,10 @@ tr:nth-of-type(odd) {
 
 .add-margin-bottom {
   margin-bottom: 44px;
+}
+
+.small-margin-bottom {
+  margin-bottom: 22px;
 }
 
 .indent {
