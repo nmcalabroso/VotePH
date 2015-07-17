@@ -7,7 +7,13 @@
   <% end %>
   <% if @positions.size > 0 %>
     <% @positions.each do |position| %>
-      <h2 class="small-margin-bottom"><%= position.name %></h2>
+      <h2 class="small-margin-bottom">
+        <% if user_signed_in? and current_user.is_admin? %>
+          <%= link_to position.name, position %>
+        <% else %>
+          <%= position.name %>
+        <% end %>
+      </h2>
       <div class="indent">
         <% if position.candidates.size > 0 %>
           <% sorted_candidates = position.candidates.sort_by { |candidate| candidate.votes.size } %>
