@@ -8,9 +8,7 @@
     <br>
     <%= link_to 'Add Candidate', new_position_candidate_path(@position, @comment), class:'button radius small' %>
     <a href="#" data-reveal-id="edit-position-modal" class="small button radius">Edit Position</a>
-    <%= link_to 'Delete Position',
-                @position, method: :delete, class: 'small button',
-                confirm: 'Are you sure? This will remove all the candidates and the respective votes in this position.' %>
+    <%= link_to 'Delete Position', @position, method: :delete, class: 'small button' %>
 </section>
 
 <div id="edit-position-modal" class="reveal-modal" data-reveal aria-labelledby="Position" aria-hidden="true" role="dialog">
