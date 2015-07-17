@@ -6,21 +6,27 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "VotePH" %></title>
     <%= favicon_link_tag %>
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic,300' rel='stylesheet' type='text/css'>
-    <%= stylesheet_link_tag    "vendor/jquery.fullPage.css" %>
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic,300" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.7/jquery.fullPage.min.css" rel="stylesheet" type="text/css">
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <%= render 'layouts/navbar' %>
+    <div id="fullpage">
+    <div class="section active">Some section</div>
+    <div class="section">Some section</div>
+    <div class="section">Some section</div>
+    <div class="section">Some section</div>
+    </div>
+    <!-- <%= render 'layouts/navbar' %>
     <%= render 'layouts/flash' %>
 
     <%= yield %>
 
-    <%= render 'layouts/footer' %>
-    <%= javascript_include_tag "vendor/jquery.fullPage.js" %>
+    <%= render 'layouts/footer' %> -->
     <%= javascript_include_tag "application" %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.7/jquery.fullPage.min.js"></script>
   </body>
 </html>

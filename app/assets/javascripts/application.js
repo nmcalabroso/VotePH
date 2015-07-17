@@ -16,3 +16,7 @@
 $(function(){ $(document).foundation(); });
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+    $('#fullpage').fullpage();
+});
