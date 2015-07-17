@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716161524) do
+ActiveRecord::Schema.define(version: 20150717073354) do
 
   create_table "candidates", force: :cascade do |t|
     t.string  "last_name"
     t.string  "first_name"
     t.text    "slogan"
     t.integer "position_id"
+    t.string  "avatar"
   end
 
   add_index "candidates", ["position_id"], name: "index_candidates_on_position_id"

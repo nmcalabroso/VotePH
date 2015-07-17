@@ -27,6 +27,8 @@ gem 'foundation-rails'
 gem 'font-awesome-rails'
 # Simple Form
 gem 'simple_form'
+# Carrierwave for uploading avatar
+gem 'carrierwave'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

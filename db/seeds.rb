@@ -16,22 +16,37 @@ position.save!
 candidate1 = Candidate.new
 candidate1.last_name = 'Binay'
 candidate1.first_name = 'Jejomar'
-candidate1.slogan = 'Kay Binay, Gaganda ang Buhay!'
+candidate1.slogan = 'Kay Binay, Gaganda ang Buhay'
 candidate1.position = position
+
+File.open('public/tests/binay.jpg') do |f|
+  candidate1.avatar = f
+end
+
 candidate1.save!
 
 candidate2 = Candidate.new
 candidate2.last_name = 'Poe'
 candidate2.first_name = 'Grace'
-candidate2.slogan = 'Maglilingkod POE sa inyo!'
+candidate2.slogan = 'Masipag, Magalang, Matulungin'
 candidate2.position = position
+
+File.open('public/tests/poe.jpg') do |f|
+  candidate2.avatar = f
+end
+
 candidate2.save!
 
 candidate3 = Candidate.new
 candidate3.last_name = 'Duterte'
-candidate3.first_name = 'Rudy'
-candidate3.slogan = 'Gwapa mo a. Patayin kaya kita. Hehe.'
+candidate3.first_name = 'Rodrigo'
+candidate3.slogan = 'Tuloy ang laban tungo sa pagbabago'
 candidate3.position = position
+
+File.open('public/tests/duterte.jpg') do |f|
+  candidate3.avatar = f
+end
+
 candidate3.save!
 
 voter1 = User.new
