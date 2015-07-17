@@ -3,12 +3,24 @@
     <h2>Voters</h2>
   </div>
   <% if @voters.size > 0 %>
-    <ul>
-      <% @voters.each do |voter| %>
-        <li><%= "#{voter.last_name}, #{voter.first_name} | #{voter.gender}" %></li>
-        <i class="icon-female"></i>
-      <% end %>
-    </ul>
+    <table class="mini-table">
+      <tbody>
+        <% @voters.each do |voter| %>
+        <tr>
+          <td>
+            <%= "#{voter.last_name}, #{voter.first_name}" %>
+          </td>
+          <td width="20%">
+            <% if "#{voter.gender}" == 'male' %>
+              <i class="fa fa-mars"></i>
+            <% else %>
+              <i class="fa fa-venus"></i>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   <% else %>
     <p>
       There are no voters.

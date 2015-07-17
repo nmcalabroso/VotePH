@@ -1,14 +1,13 @@
-<%= image_tag @candidate.avatar_url.to_s %>
 <section class="row">
   <div class="desc">
     <h2><%= "#{@candidate.last_name}, #{@candidate.first_name}" %></h2>
     <h3 class=subheader>Running for <%= @candidate.position.name %></h3>
   </div>
 
-  <div class="row center-sect">
-    <div class="thumbnail large-3 columns"></div>
-    <div class="large-9 columns candidate">
-      <blockquote class="blockquote-big">
+  <div class="row">
+    <%= image_tag @candidate.avatar_url.to_s, class:"large-6 columns thumbnail"%>
+    <div class="large-6 columns candidate">
+      <blockquote class="">
         <%= @candidate.slogan %>
       </blockquote>
       <b>Total Votes:</b> <%= @candidate.votes.size %>
@@ -27,6 +26,8 @@
         <% end %>
       <% end %>
     </div>
+
+
   </div>
 
 </section>

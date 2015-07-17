@@ -22,16 +22,39 @@
    =========================================
 */
 
-h1, h2, h3, h4, h5, p, a, small, li {
+h1, h2, h3, h4, h5, p, a, small, li, label {
   font-family: "Lato";
 }
 
-.blockquote-big {
-  font-size: 1.2em;
+.bold {
+  font-style: 600;
 }
 
 .firm {
   font-variant:small-caps;
+}
+
+.big-text {
+  font-size: 1.3em;
+}
+
+
+/* =========================================
+   Tables
+   =========================================
+*/
+
+table {
+  width: 100%;
+  margin:auto;
+}
+
+.mini-table {
+  width: 70%;
+}
+
+tr:nth-of-type(odd) { 
+  background: #eee; 
 }
 
 
@@ -54,15 +77,19 @@ h1, h2, h3, h4, h5, p, a, small, li {
   border-top: solid #ddd 1px;
 }
 
+.add-margin-bottom {
+  margin-bottom: 44px;
+}
+
+.indent {
+  margin-left: 22px;
+}
+
 
 /* =========================================
    Candidates
    =========================================
 */
-
-.candidates-row {
-  margin: 44px 22px 44px 22px;
-}
 
 .candidates-row h2 {
   margin-bottom: 22px;
@@ -73,10 +100,13 @@ h1, h2, h3, h4, h5, p, a, small, li {
 }
 
 .thumbnail {
-  /*height: 250px;
-  width: 250px;*/
   max-height: 100%;
   max-width: 100%;
   border-radius: 2%;
-  background-color: #ddd;
+  margin-bottom: 22px;
 }
+
+
+
+
+

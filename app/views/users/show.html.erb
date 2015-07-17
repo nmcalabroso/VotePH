@@ -13,8 +13,9 @@
   <section class="no-line-height">
     <% if current_user.votes.size > 0 %>
         <% current_user.votes.each do |vote| %>
-            <p><%= "#{vote.candidate.last_name}, #{vote.candidate.first_name}" %></p>
+            <h4><%= "#{vote.candidate.last_name}, #{vote.candidate.first_name}" %></h4>
             <p class="subheader">Running for <%= vote.candidate.position.name %></p>
+            <b>Comments:</b>
             <blockquote><%= vote.comment %></blockquote>
         <% end %>
     <% else %>

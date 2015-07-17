@@ -2,35 +2,25 @@
   <div class="desc">
     <h2> Candidates </h2>
   </div>
-
   <% if @positions.size > 0 %>
-
     <% @positions.each do |position| %>
-      <h2><%= position.name %></h2>
-
-      <% if position.candidates.size > 0 %>
-        <ol>
+      <h2 class="add-margin-bottom"><%= position.name %></h2>
+      <div class="indent">
+        <% if position.candidates.size > 0 %>
           <% sorted_candidates = position.candidates.sort_by { |candidate| candidate.votes.size } %>
           <% sorted_candidates.reverse.each do |candidate| %>
-              <li>
-                <%= link_to "#{candidate.last_name}, #{candidate.first_name}",
-                            position_candidate_path(position, candidate) %>
-                <i>Votes: <%= candidate.votes.size %></i>
-              </li>
-          <% end %>
-        </ol>
+            <h4><%= link_to "#{candidate.last_name}, #{candidate.first_name}",
+                        position_candidate_path(position, candidate) %></h4>
+            <p><b><%= candidate.votes.size %></b> votes</p>
+            <br>
+          <% end %>        
+      </div>
       <% else %>
-        <p>
-          There no candidates.
-        </p>
+        <p>There no candidates.</p>
       <% end %>
-
     <% end %>
-
   <% else %>
-    <p>
-      There are no positions and candidates.
-    </p>
+    <p>There are no positions and candidates.</p>
   <% end %>
 
   <% if user_signed_in? %>

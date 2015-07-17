@@ -3,17 +3,29 @@
     <h2>Positions</h2>
   </div>
   <% if @positions.size > 0 %>
-    <ol>
-      <% @positions.each do |position| %>
-        <li><%= link_to position.name, position %> |
-            <%= link_to 'Edit', edit_position_path(position) %> |
-            <%= link_to 'Delete', position, method: :delete %>
-        </li>
-      <% end %>
-    </ol>
+  <div class="text-center">
+    <table class="">
+      <tbody>
+        <% @positions.each do |position| %>
+          <tr>
+            <td><%= link_to position.name, position, class:"big-text" %></td>
+            <td width="20%">
+              <%= link_to 'Edit', edit_position_path(position) %>
+                <i class="fa fa-pencil-square-o"></i>
+            </td>
+            <td width="20%">
+              <%= link_to 'Delete', position, method: :delete  %>
+              <i class="fa fa-times"></i>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>    
+  </div>
   <% else %>
     <h3>No created positions.</h3>
   <% end %>
+  <br>
   <%= link_to 'Create', new_position_path, {class: 'small button radius'} %>
 
 </section>
