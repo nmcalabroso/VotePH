@@ -34,33 +34,32 @@
   </div>
 </section>
 
-<div id="edit-candidate-modal" class="reveal-modal" data-reveal aria-labelledby="Candidate" aria-hidden="true" role="dialog">
-  <h2>Edit Candidate</h2>
-  <%= form_for [@candidate.position, @candidate] do |f| %>
-    <%= f.file_field :avatar %>
-
+<div id="edit-candidate-modal" class="reveal-modal medium" data-reveal aria-labelledby="Candidate" aria-hidden="true" role="dialog">
+  <h2 class="text-center small-margin-bottom">Edit Candidate</h2>
     <div class="row">
-      <div class="large-6 columns">
+      <div class="large-8 medium-8 large-centered medium-centered columns">
+        <%= form_for [@candidate.position, @candidate] do |f| %>
+        <%= f.file_field :avatar %>
         <%= f.label :last_name %>
         <%= f.text_field :last_name, placeholder:'Dela Cruz' %>
       </div>
     </div>
 
     <div class="row">
-      <div class="large-6 columns">
+      <div class="large-8 medium-8 large-centered medium-centered columns">
         <%= f.label :first_name %>
         <%= f.text_field :first_name, placeholder:'Juan' %>
       </div>
     </div>
 
     <div class="row">
-      <div class="large-6 columns">
+      <div class="large-8 medium-8 large-centered medium-centered columns">
         <%= f.label :slogan %>
         <%= f.text_area :slogan, placeholder:'Honesty is the best policy.' %>
+        <%= f.submit 'Save', class: 'button radius small' %>
       </div>
     </div>
 
-    <%= f.submit 'Save', class: 'button radius small' %>
   <% end %>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>

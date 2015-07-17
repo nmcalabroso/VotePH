@@ -11,7 +11,7 @@
     <%= link_to 'Delete Position', @position, method: :delete, class: 'small button' %>
 </section>
 
-<div id="edit-position-modal" class="reveal-modal" data-reveal aria-labelledby="Position" aria-hidden="true" role="dialog">
+<div id="edit-position-modal" class="reveal-modal medium" data-reveal aria-labelledby="Position" aria-hidden="true" role="dialog">
   <h2>Edit Position</h2>
   <%= simple_form_for @position do |f| %>
     <%= f.input :name %>
