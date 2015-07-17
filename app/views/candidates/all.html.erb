@@ -21,7 +21,7 @@
             <h4><%= link_to "#{candidate.last_name}, #{candidate.first_name}",
                         position_candidate_path(position, candidate) %></h4>
             <p><b><%= candidate.votes.size %></b> votes</p>
-          <% end %>        
+          <% end %>
       </div>
       <% else %>
         <p>There no candidates.</p>

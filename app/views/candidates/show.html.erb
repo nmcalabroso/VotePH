@@ -20,7 +20,9 @@
       <% if user_signed_in? %>
         <% if current_user.is_admin? %>
           <a href="#" data-reveal-id="edit-candidate-modal" class="small button radius">Edit Candidate</a>
-          <%= link_to 'Delete Candidate', position_candidate_path(@candidate.position, @candidate), method: :delete, class: 'small button' %>
+          <%= link_to 'Delete Candidate',
+                      position_candidate_path(@candidate.position, @candidate),
+                      method: :delete, class: 'small button' %>
         <% else %>
           <% unless current_user.did_vote? @candidate %>
             <a href="#" data-reveal-id="vote-modal" class="small button radius">Vote</a>

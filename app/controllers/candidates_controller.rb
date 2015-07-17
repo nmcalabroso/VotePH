@@ -38,10 +38,10 @@ class CandidatesController < ApplicationController
   end
 
   def destroy
-    candidate = Candidate.find(params[:id])
-    position = candidate.position
+    position = Position.find(params[:position_id])
+    candidate = position.candidates.find(params[:id])
     candidate.destroy
-    redirect_to position, status: :see_other, notice: 'Candidate the associated votes are deleted!'
+    redirect_to position, notice: 'Candidate and the associated votes are deleted!'
   end
 
   def show
