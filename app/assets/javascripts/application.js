@@ -13,6 +13,28 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-$(function(){ $(document).foundation(); });
+
+$(function(){ 
+  $(document).foundation();
+});
+
+$('#return-to-top').click(function() {
+    $('body,html').animate({
+        scrollTop : 0
+    }, 500);
+});
+
+$(window).scroll(function() {
+    if ($(this).scrollTop() >= 50) {
+        $('#return-to-top').fadeIn(200);
+    } 
+
+    else {
+        $('#return-to-top').fadeOut(200);
+    }
+});
+
+// $("html, body").animate({scrollTop: $('#title1').offset().top }, 1000);
+
 //= require turbolinks
 //= require_tree .
