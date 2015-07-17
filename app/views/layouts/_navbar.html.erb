@@ -12,7 +12,6 @@
           <li ><%= link_to current_user.email, current_user %></li>
           <li ><%= link_to 'Candidates', candidates_path %></li>
           <% if current_user.role == 'admin' %>
-            <li ><%= link_to 'Positions', positions_path %></li>
             <li ><%= link_to 'Voters', voters_path %></li>
           <% end %>
           <li class="firm active">

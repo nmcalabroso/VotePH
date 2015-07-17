@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     end
 
     unless current_user.role == 'admin'
-      redirect_to root_path, alert: 'You are not permitted to view this page'
+      redirect_to root_path, alert: 'You are not permitted to view this page.'
     end
   end
 end

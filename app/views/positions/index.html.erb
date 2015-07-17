@@ -5,10 +5,7 @@
   <% if @positions.size > 0 %>
     <ol>
       <% @positions.each do |position| %>
-        <li><%= link_to position.name, position %> |
-            <%= link_to 'Edit', edit_position_path(position) %> |
-            <%= link_to 'Delete', position, method: :delete %>
-        </li>
+        <li><%= link_to position.name, position %></li>
       <% end %>
     </ol>
   <% else %>

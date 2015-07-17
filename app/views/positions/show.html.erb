@@ -3,9 +3,11 @@
       <h2><%= @position.name %></h2>
     </div>
 
-
     <h3>Candidates</h3>
     <%= render 'candidates' %>
     <%= link_to 'Add Candidate', new_position_candidate_path(@position, @comment), class:'button radius small' %>
     <%= link_to 'Edit Position', edit_position_path(@position), class: 'button radius small' %>
+    <%= link_to 'Delete Position',
+                @position, method: :delete, class: 'small button',
+                confirm: 'Are you sure? This will remove all the candidates and the respective votes in this position.' %>
 </section>

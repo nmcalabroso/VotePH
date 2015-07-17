@@ -14,7 +14,7 @@ class CandidatesController < ApplicationController
     position = Position.find(params[:position_id]);
     candidate = Candidate.new(candidate_params)
     position.candidates << candidate
-    
+
     if position.save
       redirect_to position, notice: 'New candidate has been added'
     else
@@ -51,6 +51,8 @@ class CandidatesController < ApplicationController
 
   def all
     @positions = Position.all
+    @position = Position.new
+    @candidate = Candidate.new
   end
 
   private

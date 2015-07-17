@@ -2,10 +2,6 @@ class PositionsController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_admin!
 
-  def index
-    @positions = Position.all
-  end
-
   def new
     @position = Position.new
   end
@@ -14,9 +10,9 @@ class PositionsController < ApplicationController
     position = Position.new(position_params)
 
     if position.save
-      redirect_to positions_path, notice: 'Success!'
+      redirect_to candidates_path, notice: 'Success!'
     else
-      redirect_to positions_path, alert: 'Something went wrong :('
+      redirect_to candidates_path, alert: 'Something went wrong :('
     end
   end
 
@@ -41,7 +37,7 @@ class PositionsController < ApplicationController
   def destroy
     position = Position.find(params[:id])
     position.destroy
-    redirect_to positions_path, status: :see_other, notice: 'Position and its candidates are deleted!'
+    redirect_to candidates_path, notice: 'Position and its candidates are deleted!'
   end
 
   private
