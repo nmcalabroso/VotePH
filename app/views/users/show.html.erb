@@ -1,28 +1,33 @@
-<h2>Profile</h2>
-<h3><%= "#{current_user.last_name}, #{current_user.first_name}" %></h3>
-<h3> Gender: <%= current_user.gender %> </h3>
-<h3> Birthdate: <%= current_user.birthday.strftime('%m/%d/%Y') %> </h3>
+<section class="row">
+  <div class="desc">
+    <h2>Profile</h2>    
+  </div>
+  <h3><%= "#{current_user.last_name}, #{current_user.first_name}" %></h3>
+  <h3> Gender: <%= current_user.gender %> </h3>
+  <h3> Birthdate: <%= current_user.birthday.strftime('%m/%d/%Y') %> </h3>
 
-<h2>Votes (<%= current_user.votes.size %>)</h2>
-<% if current_user.votes.size > 0 %>
-  <ol>
-    <% current_user.votes.each do |vote| %>
-      <li>
-        <p>
-          <%= "#{vote.candidate.last_name}, #{vote.candidate.first_name}" %>
-        </p>
-        <p>
-          Position: <%= vote.candidate.position.name %>
-        </p>
-        <p>
-          Comment: <%= vote.comment %>
-        </p>
-      </li>
+  <h2>Votes (<%= current_user.votes.size %>)</h2>
+  <% if current_user.votes.size > 0 %>
+    <ol>
+      <% current_user.votes.each do |vote| %>
+        <li>
+          <p>
+            <%= "#{vote.candidate.last_name}, #{vote.candidate.first_name}" %>
+          </p>
+          <p>
+            Position: <%= vote.candidate.position.name %>
+          </p>
+          <p>
+            Comment: <%= vote.comment %>
+          </p>
+        </li>
 
-    <% end %>
-  </ol>
-<% else %>
-  <p>
-    You have no votes yet.
-  </p>
-<% end %>
+      <% end %>
+    </ol>
+  <% else %>
+    <p>
+      You have no votes yet.
+    </p>
+  <% end %>
+
+</section>

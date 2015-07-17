@@ -1,15 +1,31 @@
-<h2><%= "#{@candidate.last_name}, #{@candidate.first_name}" %></h2>
-<p>Position: <%= @candidate.position.name %></p>
-<p><i><%= @candidate.slogan %></i></p>
-<b>Total Votes: <%= @candidate.votes.size %></b>
-<b>Male Votes: <%= @candidate.male_votes.size %></b>
-<b>Female Votes: <%= @candidate.female_votes.size %></b>
-<br>
-<% if user_signed_in? %>
-  <% unless current_user.did_vote? @candidate %>
-    <a href="#" data-reveal-id="vote-modal" class="small button">Vote</a>
-    <%= render 'votes/form' %>
-  <% else %>
-    <a href="#" class="small button disabled">Already Voted</a>
-  <% end %>
-<% end %>
+<section class="row">
+  <div class="desc">
+    <h2><%= "#{@candidate.last_name}, #{@candidate.first_name}" %></h2>
+    <h3 class=subheader>Running for <%= @candidate.position.name %></h3>
+  </div>
+
+  <div class="row center-sect">
+    <div class="thumbnail large-3 columns"></div>
+    <div class="large-9 columns candidate">
+      <blockquote>
+        <%= @candidate.slogan %>
+      </blockquote>
+      <b>Total Votes:</b> <%= @candidate.votes.size %>
+      <br>
+      <b>Male Votes:</b> <%= @candidate.male_votes.size %>
+      <br>
+      <b>Female Votes:</b> <%= @candidate.female_votes.size %>
+
+      <br><br>
+      <% if user_signed_in? %>
+        <% unless current_user.did_vote? @candidate %>
+          <a href="#" data-reveal-id="vote-modal" class="small button radius">Vote</a>
+          <%= render 'votes/form' %>
+        <% else %>
+          <a href="#" class="small button disabled">Already Voted</a>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+</section>

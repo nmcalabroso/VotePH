@@ -1,37 +1,42 @@
-<h2> Candidates </h2>
+<section class="row">
+  <div class="desc">
+    <h2> Candidates </h2>
+  </div>
 
-<% if user_signed_in? %>
-  <% if current_user.role == 'admin' %>
-    <h2><%= link_to 'Edit', positions_path %></h2>
+  <% if user_signed_in? %>
+    <% if current_user.role == 'admin' %>
+      <h2><%= link_to 'Edit', positions_path %></h2>
+    <% end %>
   <% end %>
-<% end %>
 
-<% if @positions.size > 0 %>
+  <% if @positions.size > 0 %>
 
-  <% @positions.each do |position| %>
-    <h2><%= position.name %></h2>
+    <% @positions.each do |position| %>
+      <h2><%= position.name %></h2>
 
-    <% if position.candidates.size > 0 %>
-      <ol>
-        <% sorted_candidates = position.candidates.sort_by { |candidate| candidate.votes.size } %>
-        <% sorted_candidates.reverse.each do |candidate| %>
-            <li>
-              <%= link_to "#{candidate.last_name}, #{candidate.first_name}",
-                          position_candidate_path(position, candidate) %>
-              <i>Votes: <%= candidate.votes.size %></i>
-            </li>
-        <% end %>
-      </ol>
-    <% else %>
-      <p>
-        There no candidates.
-      </p>
+      <% if position.candidates.size > 0 %>
+        <ol>
+          <% sorted_candidates = position.candidates.sort_by { |candidate| candidate.votes.size } %>
+          <% sorted_candidates.reverse.each do |candidate| %>
+              <li>
+                <%= link_to "#{candidate.last_name}, #{candidate.first_name}",
+                            position_candidate_path(position, candidate) %>
+                <i>Votes: <%= candidate.votes.size %></i>
+              </li>
+          <% end %>
+        </ol>
+      <% else %>
+        <p>
+          There no candidates.
+        </p>
+      <% end %>
+
     <% end %>
 
+  <% else %>
+    <p>
+      There are no positions and candidates.
+    </p>
   <% end %>
-
-<% else %>
-  <p>
-    There are no positions and candidates.
-  </p>
-<% end %>
+  
+</section>
