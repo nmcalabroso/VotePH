@@ -34,13 +34,11 @@ $(window).scroll(function() {
     }
 });
 
-// $("html, body").animate({scrollTop: $('#title1').offset().top }, 1000);
-
 //= require turbolinks
 //= require_tree .
 
 $(document).ready(function() {
-    $('#fullpage').fullpage(
-      // scrollBar: false;
-    );
+  $('#fullpage').fullpage({
+    scrollBar: true,
+  });
 });
