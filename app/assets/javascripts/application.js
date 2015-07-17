@@ -38,3 +38,9 @@ $(window).scroll(function() {
 
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+    $('#fullpage').fullpage(
+      // scrollBar: false;
+    );
+});
