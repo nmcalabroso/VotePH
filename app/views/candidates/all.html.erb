@@ -96,15 +96,14 @@
       ]
     };
 
+    <% @positions_with_candidates = @positions.select { |position| position.candidates.size > 0 } %>
+    <% @position_names = @positions_with_candidates.collect { |position| position.name } %>
+    <% @candidate_names_arr = @positions_with_candidates.collect { |position| (position.candidates.collect { |candidate| candidate.last_name }) } %>
+    <% @total_votes_arr = @positions_with_candidates.collect { |position| (position.candidates.collect { |candidate| candidate.votes.size }) } %>
+    <% @male_votes_arr = @positions_with_candidates.collect { |position| position.candidates.collect { |candidate| candidate.male_votes.size } } %>
+    <% @female_votes_arr = @positions_with_candidates.collect { |position| position.candidates.collect { |candidate| candidate.female_votes.size } } %>
 
-    <% @position_names = @positions.collect { |position| position.name } %>
-    <% @total_votes_arr = @positions.collect { |position| (position.candidates.collect { |candidate| candidate.votes.size }) } %>
-    <% @male_votes_arr = @positions.collect { |position| position.candidates.collect { |candidate| candidate.male_votes.size } } %>
-    <% @female_votes_arr = @positions.collect { |position| position.candidates.collect { |candidate| candidate.female_votes.size } } %>
-
-    setData(<%= raw @position_names.to_json %>, <%= raw @total_votes_arr.to_json %>, <%= raw @male_votes_arr.to_json %>, <%= raw @female_votes_arr.to_json %>);
-
-    
+    setData(<%= raw @position_names.to_json %>, <%= raw @candidate_names_arr.to_json %>, <%= raw @total_votes_arr.to_json %>, <%= raw @male_votes_arr.to_json %>, <%= raw @female_votes_arr.to_json %>);
 
     var ctx = $("#chart-1").get(0).getContext("2d");
     var barchart = new Chart(ctx).Bar(data, chart_options);

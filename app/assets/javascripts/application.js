@@ -36,8 +36,9 @@ $(document).ready(function () {
 
 });
 
-function setData(positions, total_votes, male_votes, female_votes) {
+function setData(positions, candidates, total_votes, male_votes, female_votes) {
   console.log(positions);
+  console.log(candidates);
   console.log(total_votes);
   console.log(male_votes);
   console.log(female_votes);
