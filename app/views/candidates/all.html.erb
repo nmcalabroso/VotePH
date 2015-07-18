@@ -88,8 +88,8 @@
       var candidates = new Array();
       var j = 0;
       api_data.total[i].forEach(function(total){
-        // candidates.push(api_data.candidates[i][j] + " (" + total.toString() + ")");
-        candidates.push("<a href=\"/positions\">Candidate</a>");
+        candidates.push(api_data.candidates[i][j] + " (" + total.toString() + ")");
+        // candidates.push("<a href=\"/positions\">Candidate</a>");
 
         j++;
       });
