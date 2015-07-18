@@ -8,7 +8,7 @@ class VotesController < ApplicationController
     if candidate.save
       current_user.votes << vote
       if current_user.save
-        redirect_to position_candidate_path(candidate.position, candidate), notice: 'Your vote has been casted'
+        redirect_to position_candidate_path(candidate.position, candidate), notice: 'Your vote has been cast'
       end
     else
       redirect_to position_candidate_path(candidate.position, candidate), alert: 'Something went wrong :('
