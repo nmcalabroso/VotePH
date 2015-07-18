@@ -18,19 +18,17 @@
         <% if position.candidates.size > 0 %>
 
         <div class="row">
-          <div class="large-10 medium-10 large-centered medium-centered columns add-margin-bottom">          
+          <div class="large-10 medium-10 large-centered medium-centered columns add-margin-bottom">
             <canvas id="chart-<%= position.id %>" class="large-centered medium-centered columns"></canvas>
           </div>
         </div>
 
-          <% sorted_candidates = position.candidates.sort_by { |candidate| candidate.votes.size } %>
-<!--       <div class="indent">
-          <% sorted_candidates.reverse.each do |candidate| %>
-            <h4><%= link_to "#{candidate.last_name}, #{candidate.first_name}",
-                        position_candidate_path(position, candidate) %></h4>
-            <p><b><%= candidate.votes.size %></b> votes</p>
+        <!-- <div class="indent">
+          <% position.candidates.each do |candidate| %>
+            <%= link_to "#{candidate.last_name}, #{candidate.first_name}",
+                        position_candidate_path(position, candidate) %>
           <% end %>
-      </div> -->
+        </div> -->
       <% else %>
         <p class="indent">There no candidates.</p>
       <% end %>
@@ -118,7 +116,7 @@
 
       i += 1;
       var ctx = $("#chart-"+i).get(0).getContext("2d");
-      var barchart = new Chart(ctx).Bar(data, chart_options);     
+      var barchart = new Chart(ctx).Bar(data, chart_options);
     });
   });
 </script>
