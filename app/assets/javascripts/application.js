@@ -37,10 +37,14 @@ $(document).ready(function () {
 });
 
 function setData(positions, total_votes, male_votes, female_votes) {
-  console.log(positions);
-  console.log(total_votes);
-  console.log(male_votes);
-  console.log(female_votes);
+  var api_data = {
+    positions: positions,
+    total: total_votes,
+    male: male_votes,
+    female: female_votes,
+  };
+
+  return api_data;
 }
 
 //= require turbolinks
