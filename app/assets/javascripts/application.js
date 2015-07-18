@@ -34,6 +34,8 @@ $(document).ready(function () {
     }
   });
 
+  var width = $('.thumbnail-circle').width();
+  $('.thumbnail-circle').css({'height':width+'px'});
 });
 
 function setData(positions, candidates, total_votes, male_votes, female_votes) {
