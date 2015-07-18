@@ -13,8 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-
-
+//= require Chart
 $(function(){
   $(document).foundation();
 });
@@ -30,12 +29,19 @@ $(document).ready(function () {
     if ($(this).scrollTop() >= 50) {
         $('#return-to-top').fadeIn(200);
     }
-
     else {
         $('#return-to-top').fadeOut(200);
     }
   });
+
 });
+
+function setData(positions, total_votes, male_votes, female_votes) {
+  console.log(positions);
+  console.log(total_votes);
+  console.log(male_votes);
+  console.log(female_votes);
+}
 
 //= require turbolinks
 //= require_tree .
