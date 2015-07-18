@@ -42,6 +42,18 @@ h1, h2, h3, h4, h5, p, a, small, li, label, td, tr {
   font-size: 0.5em;
 }
 
+.white {
+  color: #fff;
+}
+
+.sub-white {
+  color: #e8e8e8;
+}
+
+.black {
+  color: #000;
+}
+
 
 /* =========================================
    Tables
@@ -77,7 +89,8 @@ tr:nth-of-type(even) {
 }
 
 #navbar {
-  border-bottom: solid #43AC6A 8px;
+  background-color: #fff;
+  border-bottom: solid #097DB3 8px;
 }
 
 .footer {
@@ -112,6 +125,10 @@ tr:nth-of-type(even) {
 .footer {
   margin-top: 66px;
   padding: 22px;
+}
+
+.vote-bg {
+  background-color: #097DB3;
 }
 
 /* =========================================
