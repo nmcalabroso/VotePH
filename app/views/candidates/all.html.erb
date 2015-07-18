@@ -22,7 +22,7 @@
             <canvas id="chart-<%= position.id %>" class="large-centered medium-centered columns"></canvas>
           </div>
         </div>
-
+        
         <!-- <div class="indent">
           <% position.candidates.each do |candidate| %>
             <%= link_to "#{candidate.last_name}, #{candidate.first_name}",
@@ -88,7 +88,9 @@
       var candidates = new Array();
       var j = 0;
       api_data.total[i].forEach(function(total){
-        candidates.push(api_data.candidates[i][j] + " (" + total.toString() + ")");
+        // candidates.push(api_data.candidates[i][j] + " (" + total.toString() + ")");
+        candidates.push("<a href=\"/positions\">Candidate</a>");
+
         j++;
       });
 
