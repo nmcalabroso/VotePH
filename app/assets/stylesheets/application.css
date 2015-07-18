@@ -22,8 +22,8 @@
    =========================================
 */
 
-h1, h2, h3, h4, h5, p, a, small, li, label {
-  font-family: "Lato";
+h1, h2, h3, h4, h5, p, a, small, li, label, td, tr {
+  font-family: "Lato", "Helvetica Neue", Arial;
 }
 
 .bold {
@@ -99,6 +99,10 @@ tr:nth-of-type(even) {
 
 .min-top-margin {
   margin-top: -22px;
+}
+
+.add-top-margin {
+  margin-top: 12px;
 }
 
 .indent {
