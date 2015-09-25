@@ -8,33 +8,33 @@
   <% end %>
   <% if @positions.size > 0 %>
     <% @positions.each do |position| %>
-      <h2 class="small-margin-bottom">
+      <h2 class="small-margin-bottom text-center">
         <% if user_signed_in? and current_user.is_admin? %>
           <%= link_to position.name, position %>
         <% else %>
           <%= position.name %>
         <% end %>
       </h2>
-
-      <div class="row">
-        <canvas id="chart-<%= position.id %>" class="large-centered columns"></canvas>
-      </div>
-
         <% if position.candidates.size > 0 %>
-          <% sorted_candidates = position.candidates.sort_by { |candidate| candidate.votes.size } %>
-      <div class="indent">
-          <% sorted_candidates.reverse.each do |candidate| %>
-            <h4><%= link_to "#{candidate.last_name}, #{candidate.first_name}",
-                        position_candidate_path(position, candidate) %></h4>
-            <p><b><%= candidate.votes.size %></b> votes</p>
+
+        <div class="row">
+          <div class="large-10 medium-10 large-centered medium-centered columns add-margin-bottom">
+            <canvas id="chart-<%= position.id %>" class="large-centered medium-centered columns"></canvas>
+          </div>
+        </div>
+        
+        <!-- <div class="indent">
+          <% position.candidates.each do |candidate| %>
+            <%= link_to "#{candidate.last_name}, #{candidate.first_name}",
+                        position_candidate_path(position, candidate) %>
           <% end %>
-      </div>
+        </div> -->
       <% else %>
-        <p>There no candidates.</p>
+        <p class="indent">There no candidates.</p>
       <% end %>
     <% end %>
   <% else %>
-    <p>There are no positions and candidates.</p>
+    <p class="indent">There are no positions and candidates.</p>
   <% end %>
 </section>
 
@@ -74,40 +74,52 @@
       barDatasetSpacing : 1,
     };
 
+    <% @positions_with_candidates = @positions.select { |position| position.candidates.size > 0 } %>
+    <% @position_names = @positions_with_candidates.collect { |position| position.name } %>
+    <% @candidate_names_arr = @positions_with_candidates.collect { |position| (position.candidates.collect { |candidate| candidate.last_name }) } %>
+    <% @total_votes_arr = @positions_with_candidates.collect { |position| (position.candidates.collect { |candidate| candidate.votes.size }) } %>
+    <% @male_votes_arr = @positions_with_candidates.collect { |position| position.candidates.collect { |candidate| candidate.male_votes.size } } %>
+    <% @female_votes_arr = @positions_with_candidates.collect { |position| position.candidates.collect { |candidate| candidate.female_votes.size } } %>
 
-    var data = {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
-      datasets: [
-          {
-              label: "My First dataset",
-              fillColor: "rgba(220,220,220,0.5)",
-              strokeColor: "rgba(220,220,220,0.8)",
-              highlightFill: "rgba(220,220,220,0.75)",
-              highlightStroke: "rgba(220,220,220,1)",
-              data: [65, 59, 80, 81, 56, 55, 40]
-          },
-          {
-              label: "My Second dataset",
-              fillColor: "rgba(151,187,205,0.5)",
-              strokeColor: "rgba(151,187,205,0.8)",
-              highlightFill: "rgba(151,187,205,0.75)",
-              highlightStroke: "rgba(151,187,205,1)",
-              data: [28, 48, 40, 19, 86, 27, 90]
-          }
-      ]
-    };
+    var api_data = setData(<%= raw @position_names.to_json %>, <%= raw @candidate_names_arr.to_json %>, <%= raw @total_votes_arr.to_json %>, <%= raw @male_votes_arr.to_json %>, <%= raw @female_votes_arr.to_json %>);
 
-    <% @position_names = @positions.collect { |position| position.name } %>
-    <% @total_votes_arr = @positions.collect { |position| (position.candidates.collect { |candidate| candidate.votes.size }) } %>
-    <% @male_votes_arr = @positions.collect { |position| position.candidates.collect { |candidate| candidate.male_votes.size } } %>
-    <% @female_votes_arr = @positions.collect { |position| position.candidates.collect { |candidate| candidate.female_votes.size } } %>
+    var i = 0;
+    api_data.positions.forEach(function(position){
+      var candidates = new Array();
+      var j = 0;
+      api_data.total[i].forEach(function(total){
+        candidates.push(api_data.candidates[i][j] + " (" + total.toString() + ")");
+        // candidates.push("<a href=\"/positions\">Candidate</a>");
 
-    setData(<%= raw @position_names.to_json %>, <%= raw @total_votes_arr.to_json %>, <%= raw @male_votes_arr.to_json %>, <%= raw @female_votes_arr.to_json %>);
+        j++;
+      });
 
-    var ctx = $("#chart-1").get(0).getContext("2d");
-    var barchart = new Chart(ctx).Bar(data, chart_options);
+      var data = {
+        labels: candidates,
+        datasets: [
+            {
+                label: "Male",
+                fillColor: "rgba(220,220,220,0.5)",
+                strokeColor: "rgba(220,220,220,0.8)",
+                highlightFill: "rgba(220,220,220,0.75)",
+                highlightStroke: "rgba(220,220,220,1)",
+                data: api_data.male[i],
+                multiTooltipTemplate: "Male",
+            },
+            {
+                label: "Female",
+                fillColor: "rgba(151,187,205,0.5)",
+                strokeColor: "rgba(151,187,205,0.8)",
+                highlightFill: "rgba(151,187,205,0.75)",
+                highlightStroke: "rgba(151,187,205,1)",
+                data: api_data.female[i]
+            }
+        ]
+      };
 
-    var ctx = $("#chart-2").get(0).getContext("2d");
-    var barchart = new Chart(ctx).Bar(data, chart_options);
+      i += 1;
+      var ctx = $("#chart-"+i).get(0).getContext("2d");
+      var barchart = new Chart(ctx).Bar(data, chart_options);
+    });
   });
 </script>

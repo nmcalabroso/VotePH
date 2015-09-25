@@ -22,8 +22,8 @@
    =========================================
 */
 
-h1, h2, h3, h4, h5, p, a, small, li, label {
-  font-family: "Lato";
+h1, h2, h3, h4, h5, p, a, small, li, label, td, tr {
+  font-family: "Lato", "Helvetica Neue", Arial;
 }
 
 .bold {
@@ -40,6 +40,18 @@ h1, h2, h3, h4, h5, p, a, small, li, label {
 
 .small-text {
   font-size: 0.5em;
+}
+
+.white {
+  color: #fff;
+}
+
+.sub-white {
+  color: #e8e8e8;
+}
+
+.black {
+  color: #000;
 }
 
 
@@ -77,7 +89,8 @@ tr:nth-of-type(even) {
 }
 
 #navbar {
-  border-bottom: solid #43AC6A 8px;
+  background-color: #fff;
+  border-bottom: solid #097DB3 8px;
 }
 
 .footer {
@@ -101,6 +114,10 @@ tr:nth-of-type(even) {
   margin-top: -22px;
 }
 
+.add-top-margin {
+  margin-top: 12px;
+}
+
 .indent {
   margin-left: 22px;
 }
@@ -108,6 +125,17 @@ tr:nth-of-type(even) {
 .footer {
   margin-top: 66px;
   padding: 22px;
+}
+
+.vote-bg {
+  background-color: #097DB3;
+  background-image: url(http://www.dhakatribune.com/sites/default/files/Philippines-Elections_trib_0.gif);
+}
+
+.title {
+  background-color: rgba(0, 0, 0, 1);
+  opacity: 0.5;
+  z-index: 1;  
 }
 
 /* =========================================
@@ -127,6 +155,12 @@ tr:nth-of-type(even) {
   max-height: 100%;
   max-width: 100%;
   border-radius: 2%;
+  margin-bottom: 22px;
+}
+
+.thumbnail-circle {
+  max-width: 100%;
+  border-radius: 50%;
   margin-bottom: 22px;
 }
 
@@ -157,9 +191,6 @@ tr:nth-of-type(even) {
   background-color: #ddd;
   padding: 22px 22px 22px 22px;
   margin: auto;
-  /*-moz-box-shadow:    0px 0px 2px 0px #000;
-  -webkit-box-shadow: 0px 0px 2px 0px #000;
-  box-shadow:         0px 0px 2px 0px #000;*/
 }
 
 .bar {
